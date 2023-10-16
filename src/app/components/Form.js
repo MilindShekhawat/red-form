@@ -1,18 +1,23 @@
 'use client'
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addUser } from '../features/input/inputSlice'
 
 function Form() {
+    const dispatch = useDispatch()
+    const users = useSelector((state) => state.users)
+
     const [formData, setFormData] = useState({
-        firstName: '',
-        middleName: '',
-        lastName: '',
-        addressLine1: '',
-        addressLine2: '',
-        city: '',
-        state: '',
-        country: '',
-        pincode: '',
-        phone: ''
+        firstName:    '1',
+        middleName:   '1',
+        lastName:     '1',
+        addressLine1: '1',
+        addressLine2: '1',
+        city:         '1',
+        state:        '1',
+        country:      '1',
+        pincode:      '1',
+        phone:        '1'
     })
 
     function handleInput(event) {
@@ -23,6 +28,8 @@ function Form() {
 
     function handleSubmit(event) {
         event.preventDefault();
+        dispatch(addUser(formData))
+        console.log(formData)
     }
 
   return (
