@@ -5,8 +5,8 @@ import Form from './components/Form'
 export default function Home() {
   return (
     <body>
-    <h1>Form</h1>
-    <Form />
+      <h1>Form</h1>
+      <Form />
     </body>
   )
 }
