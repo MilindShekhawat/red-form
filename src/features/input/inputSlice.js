@@ -5,12 +5,12 @@ const initialState = {
     firstName: 'Milind',
     middleName: 'Singh',
     lastName: 'Shekhawat',
-    address: 'V-38/9, DLF Phase 3',
+    address: 'DLF Phase 3',
     city: 'Gurugram',
     state: 'Haryana',
     country: 'India',
     pincode: '122010',
-    phone: '9818742181',
+    phone: '9818121212',
     email: 'milindshekhawat10@gmail.com'
     }]
 }

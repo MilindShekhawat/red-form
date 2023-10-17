@@ -6,6 +6,7 @@ import { addUser } from '../features/input/inputSlice'
 function Form() {
     const dispatch = useDispatch()
     const users = useSelector((state) => state.users)
+    const duplicacy = new Set();
 
     const [formData, setFormData] = useState({
         firstName:    '',
@@ -28,30 +29,34 @@ function Form() {
 
     const handleSubmit = (event) => {
         users.forEach(user => {
-            if(user.phone != formData.phone && user.email != formData.email){
-                console.log(user.phone + " " + formData.phone)
-                console.log(user.email + " " + formData.email)
-                event.preventDefault();
-                dispatch(addUser(formData))
-                alert("Form Submitted")
-                setFormData({
-                    firstName:    '',
-                    middleName:   '',
-                    lastName:     '',
-                    address:      '',
-                    city:         '',
-                    state:        '',
-                    country:      '',
-                    pincode:      '',
-                    phone:        '',
-                    email:        '' 
-                })
-            }
-            else{
-                alert(`User ${user.firstName} already exists.`)  
-                console.log("Duplicate")
-            }
+            duplicacy.add(user.phone)
+            duplicacy.add(user.email.toLowerCase())
         });
+        //console.log(duplicacy)
+        if(duplicacy.has(formData.phone) || duplicacy.has(formData.email)){
+            event.preventDefault();
+            alert(`Someone already has this phone number or email.`)
+        }
+        else {
+            duplicacy.add(formData.phone)
+            duplicacy.add(formData.email.toLowerCase())
+            //console.log(duplicacy)
+            event.preventDefault();
+            dispatch(addUser(formData))
+            alert("Form Submitted")
+            setFormData({
+                firstName:    '',
+                middleName:   '',
+                lastName:     '',
+                address:      '',
+                city:         '',
+                state:        '',
+                country:      '',
+                pincode:      '',
+                phone:        '',
+                email:        '' 
+            })
+        }
     }
 
   return (
