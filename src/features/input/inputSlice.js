@@ -2,18 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     users: [{
-    firstName: '',
-    middleName: '',
-    lastName: '',
-    addressLine1: '',
-    addressLine2: '',
-    city: '',
-    state: '',
-    country: '',
-    pincode: '',
-    phone: ''
+    firstName: 'Milind',
+    middleName: 'Singh',
+    lastName: 'Shekhawat',
+    address: 'V-38/9, DLF Phase 3',
+    city: 'Gurugram',
+    state: 'Haryana',
+    country: 'India',
+    pincode: '122010',
+    phone: '9818742181',
+    email: 'milindshekhawat10@gmail.com'
     }]
 }
+
 export const inputSlice = createSlice({
     name: 'user',
     initialState,
@@ -23,16 +24,17 @@ export const inputSlice = createSlice({
                 firstName:    action.payload.firstName,
                 middleName:   action.payload.middleName,
                 lastName:     action.payload.lastName,
-                addressLine1: action.payload.addressLine1,
-                addressLine2: action.payload.addressLine2,
+                address:      action.payload.address,
                 city:         action.payload.city,
                 state:        action.payload.state,
                 country:      action.payload.country,
                 pincode:      action.payload.pincode,
-                phone:        action.payload.phone
+                phone:        action.payload.phone,
+                email:        action.payload.email
             }
             state.users.push(user)
-        }
+            console.log(user)
+        },
     }
 })
 
