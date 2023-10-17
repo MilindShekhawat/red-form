@@ -17,8 +17,8 @@ form {
   min-width: 300px;
   padding: 20px 40px;
   border-radius: 20px;
-  box-shadow: 0px 0px 10px -5px;
-  background-color: rgb(240, 240, 240);
+  box-shadow: 0px 1px 10px -5px;
+  background-color: rgb(255, 255, 255);
 }
 
 form > div{
@@ -41,7 +41,12 @@ label > span {
 label > input {
   height: 30px;
   padding: 0px 10px;
-  border: 1px solid rgb(137, 137, 137);
+  border: 1px solid rgb(240, 240, 240);
   border-radius: 5px;
+  color: rgb(125, 125, 125);
+  background-color: rgb(235, 235, 235);
 }
-
+label > input:focus {
+  outline: none;
+  background-color: rgb(240, 240, 240);
+}

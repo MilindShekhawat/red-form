@@ -44,3 +44,6 @@
     color: rgb(240, 240, 240); 
     background-color: rgb(94, 94, 245)
 }
+.submitBtn:hover{
+    background-color: rgb(130, 130, 245)
+}
