@@ -93,23 +93,28 @@ function Form() {
             <input  name='address'       value={formData.address}        onChange={handleInput} type='text' required/>
         </label>
 
-        <label>
-            <span>City<span style={{color:'red'}}> *</span></span>   
-            <input  name='city'          value={formData.city}           onChange={handleInput} type='text' required/>
-        </label>
-        <label>
-            <span>State<span style={{color:'red'}}> *</span></span>    
-        <input      name='state'         value={formData.state}          onChange={handleInput} type='text' required/>
-        </label>
-        <label>
-            <span>Country<span style={{color:'red'}}> *</span></span>      
-            <input  name='country'       value={formData.country}        onChange={handleInput} type='text' required/>
-        </label>
-        <label>
-            <span>Pin Code<span style={{color:'red'}}> *</span></span>       
-            <input  name='pincode'       value={formData.pincode}        onChange={handleInput} type='number' required/>
-        </label>
+        <div>
+            <label>
+                <span>City<span style={{color:'red'}}> *</span></span>   
+                <input  name='city'          value={formData.city}           onChange={handleInput} type='text' required/>
+            </label>
+            <label>
+                <span>State<span style={{color:'red'}}> *</span></span>    
+            <input      name='state'         value={formData.state}          onChange={handleInput} type='text' required/>
+            </label>
+        </div>
 
+        <div>
+            <label>
+                <span>Country<span style={{color:'red'}}> *</span></span>      
+                <input  name='country'       value={formData.country}        onChange={handleInput} type='text' required/>
+            </label>
+            <label>
+                <span>Pin Code<span style={{color:'red'}}> *</span></span>       
+                <input  name='pincode'       value={formData.pincode}        onChange={handleInput} type='number' required/>
+            </label> 
+        </div>
+        
         <label>
             <span>Phone Number<span style={{color:'red'}}> *</span></span>           
             <input  name='phone'         value={formData.phone}          onChange={handleInput} type='number' required/>

@@ -1,5 +1,6 @@
 * {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -12,26 +13,34 @@ form {
   display: flex;
   flex-flow: column wrap;
   height: auto;
-  width: 400px;
+  max-width: 450px;
+  min-width: 300px;
   padding: 20px 40px;
-  border: 1px solid rgb(180, 180, 180);
   border-radius: 20px;
-  box-shadow: 0px 0px 10px -6px;
+  box-shadow: 0px 0px 10px -5px;
   background-color: rgb(240, 240, 240);
+}
+
+form > div{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
 }
 
 label {
   display: flex;
   flex-flow: column wrap;
+  flex: 1;
   margin-bottom: 10px;
 }
 
 label > span {
-  padding-bottom: 0px;
+  padding-bottom: 1px;
 }
 
 label > input {
-  height: 24px;
+  height: 30px;
+  padding: 0px 10px;
   border: 1px solid rgb(137, 137, 137);
   border-radius: 5px;
 }
