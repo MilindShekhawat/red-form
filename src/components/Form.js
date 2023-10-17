@@ -6,6 +6,8 @@ import { addUser } from '../features/input/inputSlice'
 function Form() {
     const dispatch = useDispatch()
     const users = useSelector((state) => state.users)
+
+    //Created a set that will contain all phone and emails
     const duplicacy = new Set();
 
     const [formData, setFormData] = useState({
@@ -21,27 +23,39 @@ function Form() {
         email:        ''
     })
 
+
     const handleInput = (event) => {
+        // We take name and value from current event.target and input them to SetFormData
         const { name, value} = event.target
+        // we save the previous state to add data onto
         setFormData((pre) => ({...pre, [name]: value}))
         console.log(formData)
     }
 
+
     const handleSubmit = (event) => {
+        //First we import users from store an loop through all of them
+        //Importing from store is needed as set is cleaned on new state
         users.forEach(user => {
+            //Then we add phone and email of each user in duplicacy set.
             duplicacy.add(user.phone)
             duplicacy.add(user.email.toLowerCase())
         });
         //console.log(duplicacy)
+
+        //now if we add duplicate phone or email, we wont be able to
         if(duplicacy.has(formData.phone) || duplicacy.has(formData.email)){
             event.preventDefault();
             alert(`Someone already has this phone number or email.`)
         }
         else {
+            //Otherwise add new phone and email to set
             duplicacy.add(formData.phone)
             duplicacy.add(formData.email.toLowerCase())
             //console.log(duplicacy)
             event.preventDefault();
+
+            //Send data to store and reset all input boxes
             dispatch(addUser(formData))
             alert("Form Submitted")
             setFormData({

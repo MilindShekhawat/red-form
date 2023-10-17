@@ -21,6 +21,7 @@ export const inputSlice = createSlice({
     reducers: {
         addUser: (state, action) => {
             const user = {
+                //Import individual object values and assign them
                 firstName:    action.payload.firstName,
                 middleName:   action.payload.middleName,
                 lastName:     action.payload.lastName,
@@ -32,6 +33,7 @@ export const inputSlice = createSlice({
                 phone:        action.payload.phone,
                 email:        action.payload.email
             }
+            //Push the user "object" to users "List"
             state.users.push(user)
             console.log(user)
         },
